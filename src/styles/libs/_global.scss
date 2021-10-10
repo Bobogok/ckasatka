@@ -1,0 +1,28 @@
+html,
+body {
+  padding: 50px 0;
+  background-color: $background;
+}
+
+.wrapper {
+  width: calc(100vw - 100px);
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
