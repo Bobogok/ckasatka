@@ -5,7 +5,14 @@
     "es6": true,
     "node": true
   },
-  "extends": ["react-app", "airbnb", "plugin:prettier/recommended", "eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
