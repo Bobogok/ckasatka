@@ -1,10 +1,22 @@
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   left: 0;
   z-index: 10;
-  padding: 40px 0;
+  padding-top: 40px;
+  transition: background-color $duration-slow ease-out, box-shadow $duration-slow ease-out;
+  animation: header-visible $duration-visible ease-out;
+
+  &--scrolled {
+    position: fixed;
+    padding: 40px 0;
+    background-color: $white;
+    box-shadow: 1px 5px 5px 0 rgba(34, 60, 80, 0.2);
+    animation-name: scrolled-header;
+    animation-duration: $duration-visible;
+    animation-timing-function: ease-out;
+  }
 
   &__inner {
     display: flex;

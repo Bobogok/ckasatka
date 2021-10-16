@@ -1,5 +1,5 @@
 import Header from './Header';
 import Main from './Main';
-import Button from './Button';
+import Choice from './Choice';
 
-export { Header, Main, Button };
+export { Header, Main, Choice };

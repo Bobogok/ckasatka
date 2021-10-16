@@ -1,0 +1,27 @@
+.card {
+  padding: 20px;
+  border-radius: 7px;
+
+  &__title {
+    font-size: 1.54em;
+  }
+
+  &__text {
+    line-height: 1.25;
+  }
+
+  &--white {
+    background-color: $white;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.3);
+  }
+
+  &--fill {
+    background-color: $main;
+    box-shadow: 4px 4px 8px 0 rgba(220, 20, 60, 0.4);
+
+    .card__title,
+    .card__text {
+      color: $white;
+    }
+  }
+}

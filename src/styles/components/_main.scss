@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  // height: calc(100vh - 117px);
   height: 100vh;
   max-height: 1080px;
   overflow: hidden;
@@ -15,23 +14,8 @@
     left: 0;
   }
 
-  // &::before {
-  //   position: absolute;
-  //   top: -130px;
-  //   right: 0;
-  //   left: 0;
-  //   z-index: -1;
-  //   height: 100vh;
-  //   margin-right: auto;
-  //   margin-left: auto;
-  //   background: url('../img/content/particles.jpg') center center no-repeat;
-  //   background-size: cover;
-  //   content: '';
-  // }
-
   &__container {
     position: relative;
-    // top: calc(((100vh - 242px) / 2) - 117px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -59,6 +43,67 @@
 
     span {
       font-size: 16px;
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    // right: 0;
+    bottom: 50px;
+    left: calc(50% - (5em / 2));
+    display: flex;
+  }
+
+  &__scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    animation-name: lift;
+    animation-duration: $duration-slow;
+    animation-timing-function: cubic-bezier(0, 0, 0.26, 1.04);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    &::before {
+      position: absolute;
+      top: -35px;
+      right: -35px;
+      bottom: -35px;
+      left: -35px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 25px rgba(220, 20, 60, 35%);
+      opacity: 0;
+      animation: lavina calc($duration-slow * 2) infinite;
+      animation-timing-function: cubic-bezier(0, 0, 0.26, 1.04);
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &__scroll-icon {
+    position: relative;
+    width: 1.2em;
+    height: 2em;
+    border: 1px solid $main;
+    border-radius: 25px;
+
+    &::before {
+      position: absolute;
+      top: 8px;
+      left: calc(1.2em / 2);
+      width: 6px;
+      height: 6px;
+      margin-left: -4px;
+      background: $main;
+      border-radius: 4px;
+      animation-name: scroll;
+      animation-duration: calc($duration-slow);
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      content: '';
     }
   }
 }
