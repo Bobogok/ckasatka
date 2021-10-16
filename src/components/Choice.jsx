@@ -1,38 +1,26 @@
-import React, { useRef } from 'react';
-import { useIntersection } from 'react-use';
-// eslint-disable-next-line no-unused-vars
+import React, { useRef, useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import Card from './Card';
 
 function Choice() {
   const sectionChoice = useRef(null);
-  console.log(sectionChoice);
-  const intersection = useIntersection(sectionChoice, {
-    // используется отслеживание пересечения элемента с областью видимости
-    root: null,
-    // Отступы вокруг root.  Могут иметь значения как свойство css margin
-    rootMargin: '0px',
-    // Число или массив чисел, указывающий, при каком проценте видимости целевого элемента должен сработать callback
-    threshold: 1
-  });
+  gsap.registerPlugin(ScrollTrigger);
 
-  console.log(intersection);
-
-  // const fadeIn = (element) => {
-  //   gsap.fromTo(element, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 2 });
-  // };
-
-  // // eslint-disable-next-line no-undef
-  // // eslint-disable-next-line no-unused-expressions
-  // intersection && intersection.intersectionRatio < 1 ? '' : fadeIn('.choice');
-
-  // useEffect(() => {
-  //   console.log(intersection);
-  //   // eslint-disable-next-line no-unused-expressions
-  //   // gsap.to(titleRef.current, { rotation: '+=360' });
-  // }, []);
+  useEffect(() => {
+    gsap
+      .timeline({
+        paused: true,
+        scrollTrigger: {
+          trigger: sectionChoice.current,
+          start: 'top 50%',
+          markers: true
+        }
+      })
+      .fromTo('.choice', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1 });
+  }, []);
   return (
-    <section className="choice">
+    <section className="choice" ref={sectionChoice}>
       <div className="choice__inner container">
         <div className="choice__cards">
           <Card className="choice__card" white>
@@ -67,9 +55,7 @@ function Choice() {
           </Card>
         </div>
         <div className="choice__info">
-          <h2 className="choice__title title" ref={sectionChoice}>
-            Почему выбирают нас?
-          </h2>
+          <h2 className="choice__title title">Почему выбирают нас?</h2>
           <p className="choice__text">
             Мы занимаемся уникальной разработкой автоматизированного программного обеспечения для легкого управления
             бизнесом в удаленном формате.
