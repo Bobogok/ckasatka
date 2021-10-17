@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+
 import Card from './Card';
 
 function Choice() {
@@ -8,17 +9,40 @@ function Choice() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap
-      .timeline({
-        paused: true,
-        scrollTrigger: {
-          trigger: sectionChoice.current,
-          start: 'top 50%',
-          markers: true
-        }
-      })
-      .fromTo('.choice', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1 });
+    const firstLookTlimeline = gsap.timeline({
+      paused: true,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: sectionChoice.current,
+        start: 'top center'
+        // markers: true
+      }
+    });
+
+    const secondLookTlimeline = gsap.timeline({
+      paused: true,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: sectionChoice.current,
+        start: 'top 40%'
+        // markers: true
+      }
+    });
+
+    firstLookTlimeline
+      .fromTo('.choice__card:nth-child(1)', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
+      .fromTo('.choice__card:nth-child(2)', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
+      .fromTo('.choice__info', { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.75 }, 0);
+
+    secondLookTlimeline
+      .fromTo('.choice__card:nth-child(3)', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
+      .fromTo('.choice__card:nth-child(4)', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
+      .fromTo('.choice__case', { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.75 });
+
+    // firstLookAnimation.play();
+    // return () => tl.remove([firstLookAnimation, secondLookAnimation]);
   }, []);
+
   return (
     <section className="choice" ref={sectionChoice}>
       <div className="choice__inner container">

@@ -1,35 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import className from 'classnames';
+import React, { useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 import Button from './Button';
 
-function Header() {
-  const [scrolled, setScrolled] = useState(false);
-
-  const listenScrollEvent = () => {
-    if (window.scrollY > 220) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+function Header({ scrollToTop }) {
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
-
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
+    gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        toggleClass: { className: 'header--scrolled', targets: '.header' },
+        start: 'top -20%',
+        end: 'bottom top'
+      }
+    });
+  });
 
   return (
-    <header className={className('header', { 'header--scrolled': scrolled })}>
+    <header className="header">
       <div className="header__inner container">
-        {
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <a href="#">
-            <h3 className="header__logo">
-              <span>C</span>KASATKA
-            </h3>
-          </a>
-        }
+        <h3 className="header__logo" onClick={scrollToTop}>
+          <span>C</span>KASATKA
+        </h3>
         <nav className="header__navigations">
           <ul className="header__selectors">
             <li className="header__selector active">Преимущества</li>

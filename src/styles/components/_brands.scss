@@ -1,0 +1,24 @@
+.brands {
+  padding-top: 140px;
+
+  &__inner {
+  }
+
+  &__title {
+    margin-bottom: 85px;
+    text-align: center;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    row-gap: 85px;
+  }
+
+  &__item {
+  }
+
+  &__image {
+  }
+}

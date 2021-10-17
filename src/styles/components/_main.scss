@@ -52,6 +52,7 @@
     bottom: 50px;
     left: calc(50% - (5em / 2));
     display: flex;
+    cursor: pointer;
   }
 
   &__scroll-container {
