@@ -1,0 +1,61 @@
+.functional {
+  padding-top: 140px;
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    flex: 1 1 100%;
+  }
+
+  &__textWrapper {
+  }
+
+  &__text {
+    margin-bottom: 10px;
+  }
+
+  &__cases {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__case {
+  }
+
+  &__caseTitle {
+    font-weight: 500;
+    font-size: 40px;
+
+    &--red {
+      color: $main;
+    }
+  }
+
+  &__caseText {
+  }
+
+  &__cards {
+    margin-top: 60px;
+  }
+
+  &__card {
+    // width: 350px;
+    height: 350px;
+    margin: 10px 25px;
+  }
+
+  &__cardIcon {
+    @include patch-icon;
+  }
+
+  &__cardTitle {
+    margin-top: 60px;
+  }
+
+  &__cardText {
+    margin-top: 20px;
+  }
+}

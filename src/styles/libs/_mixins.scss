@@ -4,3 +4,11 @@
   background: rgb(0, 255, 55);
   border-radius: 50%;
 }
+
+@function slick-image-url($url) {
+  @if function-exists(image-url) {
+    @return image-url($url);
+  } @else {
+    @return url($slick-loader-path + $url);
+  }
+}

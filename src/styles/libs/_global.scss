@@ -1,6 +1,6 @@
 html,
 body {
-  height: 400vh;
+  height: 700vh; // temp
   overflow-x: hidden;
   font-size: 1.1em;
   font-family: 'Montserrat', 'Proxima Nova', sans-serif;
@@ -35,16 +35,17 @@ body {
 .bullets {
   display: flex;
 
-  &__bullet {
+  li {
     width: 9px;
     height: 9px;
     margin-right: 9px;
     background-color: $white;
     border: 1px solid $main;
     border-radius: 50%;
+    transition: background-color $duration-slow * 2 ease;
   }
 
-  .active {
+  .slick-active {
     background-color: $main;
   }
 }

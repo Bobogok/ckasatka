@@ -38,9 +38,6 @@ function Choice() {
       .fromTo('.choice__card:nth-child(3)', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
       .fromTo('.choice__card:nth-child(4)', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
       .fromTo('.choice__case', { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.75 });
-
-    // firstLookAnimation.play();
-    // return () => tl.remove([firstLookAnimation, secondLookAnimation]);
   }, []);
 
   return (
