@@ -1,0 +1,36 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "image": "./static/brands/logo.png",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo assumenda itaque, quasi id ab pariatur adnam nulla dolor neque quidem, earum omnis vel nostrum cupiditate inventore nisi delectus maiores. Illo assumenda itaque",
+      "personName": "Ivan Ivanov",
+      "companyName": "Audi",
+      "alt": "alt name"
+    },
+    {
+      "id": 2,
+      "image": "./static/brands/logo.png",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo assumenda itaque, quasi id ab pariatur adnam nulla dolor neque quidem, earum omnis vel nostrum cupiditate inventore nisi delectus maiores. Illo assumenda itaque",
+      "personName": "Ivan Ivanov",
+      "companyName": "Audi",
+      "alt": "alt name"
+    },
+    {
+      "id": 3,
+      "image": "./static/brands/logo.png",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo assumenda itaque, quasi id ab pariatur adnam nulla dolor neque quidem, earum omnis vel nostrum cupiditate inventore nisi delectus maiores. Illo assumenda itaque",
+      "personName": "Ivan Ivanov",
+      "companyName": "Audi",
+      "alt": "alt name"
+    },
+    {
+      "id": 4,
+      "image": "./static/brands/logo.png",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo assumenda itaque, quasi id ab pariatur adnam nulla dolor neque quidem, earum omnis vel nostrum cupiditate inventore nisi delectus maiores. Illo assumenda itaque",
+      "personName": "Ivan Ivanov",
+      "companyName": "Audi",
+      "alt": "alt name"
+    }
+  ]
+}

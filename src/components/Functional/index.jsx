@@ -70,29 +70,32 @@ function Functional() {
           </div>
         </div>
         <div className="functional__cards">
-          <Slider {...slickSettings}>
-            {Object.values(cards)
-              .flat()
-              .map((obj, index) => {
-                if (index % 2 === 0) {
+          {
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            <Slider {...slickSettings}>
+              {Object.values(cards)
+                .flat()
+                .map((obj, index) => {
+                  if (index % 2 === 0) {
+                    return (
+                      <Card key={obj.id} className="functional__card" white>
+                        <svg className="functional__cardIcon" />
+                        <h4 className="functional__cardTitle card__title">{obj.title}</h4>
+                        <div className="functional__cardText card__text">{obj.description}</div>
+                      </Card>
+                    );
+                  }
+
                   return (
-                    <Card key={obj.id} className="functional__card" white>
+                    <Card key={obj.id} className="functional__card" fill>
                       <svg className="functional__cardIcon" />
                       <h4 className="functional__cardTitle card__title">{obj.title}</h4>
                       <div className="functional__cardText card__text">{obj.description}</div>
                     </Card>
                   );
-                }
-
-                return (
-                  <Card key={obj.id} className="functional__card" fill>
-                    <svg className="functional__cardIcon" />
-                    <h4 className="functional__cardTitle card__title">{obj.title}</h4>
-                    <div className="functional__cardText card__text">{obj.description}</div>
-                  </Card>
-                );
-              })}
-          </Slider>
+                })}
+            </Slider>
+          }
         </div>
       </div>
     </section>

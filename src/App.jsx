@@ -1,6 +1,18 @@
 import React from 'react';
 import { animateScroll as scroll } from 'react-scroll';
-import { Header, Main, Choice, Brands, Advantage, Functional, Tarifs } from './components';
+import {
+  Header,
+  Main,
+  Choice,
+  Brands,
+  Advantage,
+  Functional,
+  Tarifs,
+  Comments,
+  Support,
+  About,
+  Footer
+} from './components';
 
 import './styles/index.scss';
 
@@ -29,6 +41,10 @@ function App() {
       <Advantage />
       <Functional />
       <Tarifs />
+      <Comments />
+      <Support />
+      <About />
+      <Footer />
     </div>
   );
 }

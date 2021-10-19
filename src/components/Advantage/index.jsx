@@ -54,29 +54,32 @@ function Advantage() {
           <h2 className="advantage__title title">Преимущества</h2>
         </div>
         <div className="advantage__cards">
-          <Slider {...slickSettings}>
-            {Object.values(cards)
-              .flat()
-              .map((obj, index) => {
-                if (index % 2 === 1) {
+          {
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            <Slider {...slickSettings}>
+              {Object.values(cards)
+                .flat()
+                .map((obj, index) => {
+                  if (index % 2 === 1) {
+                    return (
+                      <Card key={obj.id} className="advantage__card" white>
+                        <svg className="advantage__cardIcon" />
+                        <h4 className="advantage__cardTitle card__title">{obj.title}</h4>
+                        <div className="advantage__cardText card__text">{obj.description}</div>
+                      </Card>
+                    );
+                  }
+
                   return (
-                    <Card key={obj.id} className="advantage__card" white>
+                    <Card key={obj.id} className="advantage__card" fill>
                       <svg className="advantage__cardIcon" />
                       <h4 className="advantage__cardTitle card__title">{obj.title}</h4>
                       <div className="advantage__cardText card__text">{obj.description}</div>
                     </Card>
                   );
-                }
-
-                return (
-                  <Card key={obj.id} className="advantage__card" fill>
-                    <svg className="advantage__cardIcon" />
-                    <h4 className="advantage__cardTitle card__title">{obj.title}</h4>
-                    <div className="advantage__cardText card__text">{obj.description}</div>
-                  </Card>
-                );
-              })}
-          </Slider>
+                })}
+            </Slider>
+          }
         </div>
       </div>
     </section>

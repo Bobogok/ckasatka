@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-function Button({ onClick, className, children, outline, fill, shadow, login, add, black }) {
+function Button({ onClick, className, children, type, outline, fill, shadow, login, add, black }) {
   return (
     <button
-      type="button"
+      type={type === 'submit' ? 'submit' : 'button'}
       onClick={onClick}
       className={classNames('button', className, {
         'button--outline': outline,

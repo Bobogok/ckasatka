@@ -17,8 +17,8 @@ function Tarifs() {
       delay: 0.5,
       scrollTrigger: {
         trigger: sectionTarifs.current,
-        start: 'top 75%',
-        markers: true
+        start: 'top 75%'
+        // markers: true
       }
     });
 
@@ -27,8 +27,8 @@ function Tarifs() {
       delay: 0.5,
       scrollTrigger: {
         trigger: sectionTarifs.current,
-        start: 'top 40%',
-        markers: true
+        start: 'top 40%'
+        // markers: true
       }
     });
 
@@ -56,8 +56,8 @@ function Tarifs() {
                     <div className="tarifs__cardText card__text">{obj.description}</div>
                     <div className="tarifs__timing card__text">{obj.timing}</div>
                     <ul className="tarifs__items card__text">
-                      {obj.tarifs.map((item, liIndex) => (
-                        <li key={liIndex} className="tarifs__item">
+                      {obj.tarifs.map((item) => (
+                        <li key={item} className="tarifs__item">
                           {item}
                         </li>
                       ))}
@@ -75,8 +75,8 @@ function Tarifs() {
                   <div className="tarifs__cardText card__text">{obj.description}</div>
                   <div className="tarifs__timing card__text">{obj.timing}</div>
                   <ul className="tarifs__items card__text">
-                    {obj.tarifs.map((item, liIndex) => (
-                      <li key={liIndex} className="tarifs__item">
+                    {obj.tarifs.map((item) => (
+                      <li key={item} className="tarifs__item">
                         {item}
                       </li>
                     ))}

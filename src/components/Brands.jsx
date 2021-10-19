@@ -31,6 +31,7 @@ function Brands() {
         <h2 className="brands__title title">Мы уже работаем с этими брендами</h2>
         <div className="brands__items">
           {images.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <LazyLoad className="brands__image" key={index} offset={160} height={85} placeholder="Загрузка..." once>
               <img height="85" width="auto" src={item} alt="brand logo" />
             </LazyLoad>
