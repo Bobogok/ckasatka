@@ -46,6 +46,11 @@
   &__selectors {
     display: flex;
     margin-right: 30px;
+    transition: all $duration-fast / 2 ease;
+
+    .active {
+      color: $main;
+    }
   }
 
   &__selector {
@@ -54,11 +59,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color $duration ease-in-out, color $duration ease-in-out,
-      box-shadow $duration-fast ease-in-out, transform $duration-fast ease-in-out;
-
-    &.active {
-      font-weight: 600;
-    }
+      box-shadow $duration-fast ease-in-out, transform $duration-fast ease-in-out, color $duration-slow ease;
 
     &:hover {
       box-shadow: 0 -5px 5px -5px rgba(34, 60, 80, 0.6) inset;

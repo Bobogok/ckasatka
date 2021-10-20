@@ -1,5 +1,5 @@
 import React from 'react';
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll, Element } from 'react-scroll';
 import {
   Header,
   Main,
@@ -38,12 +38,22 @@ function App() {
       <Main scrollToChoice={scrollToChoice} />
       <Choice />
       <Brands />
-      <Advantage />
-      <Functional />
-      <Tarifs />
+      <Element name="advantage">
+        <Advantage />
+      </Element>
+      <Element name="functional">
+        <Functional />
+      </Element>
+      <Element name="tarifs">
+        <Tarifs />
+      </Element>
       <Comments />
-      <Support />
-      <About />
+      <Element name="support">
+        <Support />
+      </Element>
+      <Element name="about">
+        <About />
+      </Element>
       <Footer />
     </div>
   );
