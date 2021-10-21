@@ -26,12 +26,15 @@ function About() {
       scrollTrigger: {
         trigger: sectionAbout.current,
         start: 'top 80%'
+      },
+      defaults: {
+        duration: 0.75
       }
     });
 
     firstLookTlimeline
-      .fromTo('.about__logo, .about__title', { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.75 }, 0)
-      .fromTo('.about__info', { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.75 });
+      .fromTo('.about__logo, .about__title', { opacity: 0, x: 80 }, { opacity: 1, x: 0 }, 0)
+      .fromTo('.about__info', { opacity: 0, x: -80 }, { opacity: 1, x: 0 });
   }, []);
 
   return (

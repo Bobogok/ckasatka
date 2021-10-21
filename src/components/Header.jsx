@@ -1,12 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
-import { Link } from 'react-scroll';
+import { animateScroll as scroll, Link } from 'react-scroll';
 
 import Button from './Button';
 
-function Header({ scrollToTop }) {
+import Overlay from './Overlay';
+
+function Header() {
   gsap.registerPlugin(ScrollTrigger);
+
+  const [opened, setOpened] = useState(false);
+
+  const handleClickMenu = () => {
+    setOpened(true);
+  };
+
+  const setCartClosed = () => {
+    setOpened(false);
+  };
+
+  const scrollToTop = () => {
+    scroll.scrollToTop({
+      duration: 500,
+      smooth: true
+    });
+  };
 
   useEffect(() => {
     gsap.timeline({
@@ -26,6 +45,19 @@ function Header({ scrollToTop }) {
           <span>C</span>KASATKA
         </h3>
         <nav className="header__navigations">
+          <button className="header__button-navigation" onClick={handleClickMenu} type="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              version="1.1"
+              fill="#000"
+              width="100%"
+              height="100%"
+            >
+              <path d="M3 17a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1zm0-5a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1zm1-6a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4z" />
+            </svg>
+          </button>
+          <Overlay opened={opened} onClose={setCartClosed} />
           <ul className="header__selectors">
             <Link activeClass="active" to="advantage" spy smooth duration={700}>
               <li className="header__selector">Преимущества</li>

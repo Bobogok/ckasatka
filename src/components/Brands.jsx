@@ -1,10 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useMedia } from 'react-use';
 import LazyLoad from 'react-lazyload';
 
 function Brands() {
   const images = Array(6).fill('./static/brands/brand-1.png'); // temporary
+
+  const mediaImages810 = useMedia('(max-width: 810px)');
 
   const sectionBrands = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +36,7 @@ function Brands() {
           {images.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <LazyLoad className="brands__image" key={index} offset={160} height={85} placeholder="Загрузка..." once>
-              <img height="85" width="auto" src={item} alt="brand logo" />
+              <img height={mediaImages810 ? '55' : '85'} width="auto" src={item} alt="brand logo" />
             </LazyLoad>
           ))}
         </div>

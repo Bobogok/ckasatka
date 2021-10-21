@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useMedia } from 'react-use';
 import Slider from 'react-slick';
 
 import comments from './comments.json';
@@ -10,6 +11,17 @@ import slickSettings from './slick-settings';
 function Comments() {
   const sectionComments = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
+
+  const mediaSlider810 = useMedia('(max-width: 810px)');
+
+  if (mediaSlider810) {
+    slickSettings.slidesToScroll = 1;
+    slickSettings.slidesToShow = 1;
+    slickSettings.dots = false;
+  } else {
+    slickSettings.slidesToScroll = 2;
+    slickSettings.slidesToShow = 2;
+  }
 
   useEffect(() => {
     const firstLookTlimeline = gsap.timeline({

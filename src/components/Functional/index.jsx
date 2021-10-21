@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useMedia } from 'react-use';
 
 import Slider from 'react-slick';
 
@@ -12,6 +13,17 @@ import Card from '../Card';
 function Functional() {
   const sectionFunctional = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
+
+  const mediaSlider810 = useMedia('(max-width: 810px)');
+
+  if (mediaSlider810) {
+    slickSettings.slidesToScroll = 1;
+    slickSettings.slidesToShow = 1;
+    slickSettings.dots = false;
+  } else {
+    slickSettings.slidesToScroll = 2;
+    slickSettings.slidesToShow = 2;
+  }
 
   useEffect(() => {
     const firstLookTlimeline = gsap.timeline({

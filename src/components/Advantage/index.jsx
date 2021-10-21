@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useMedia } from 'react-use';
+
 import Slider from 'react-slick';
 
 import Card from '../Card';
@@ -12,6 +14,21 @@ function Advantage() {
   const sectionAdvantage = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
+  const mediaSlider1300 = useMedia('(min-width: 810px) and (max-width: 1300px)');
+  const mediaSlider810 = useMedia('(max-width: 810px)');
+
+  if (mediaSlider1300) {
+    slickSettings.slidesToScroll = 2;
+    slickSettings.slidesToShow = 2;
+  } else if (mediaSlider810) {
+    slickSettings.slidesToScroll = 1;
+    slickSettings.slidesToShow = 1;
+    slickSettings.dots = false;
+  } else {
+    slickSettings.slidesToScroll = 3;
+    slickSettings.slidesToShow = 3;
+  }
+
   useEffect(() => {
     const firstLookTlimeline = gsap.timeline({
       paused: true,
@@ -20,27 +37,35 @@ function Advantage() {
         trigger: sectionAdvantage.current,
         start: 'top 65%'
         // markers: true
+      },
+      defaults: {
+        duration: 0.75
       }
     });
 
-    const secondLookTlimeline = gsap.timeline({
+    firstLookTlimeline
+      .fromTo('.advantage__text', { opacity: 0, x: -80 }, { opacity: 1, x: 0 }, 0)
+      .fromTo('.advantage__title', { opacity: 0, x: 80 }, { opacity: 1, x: 0 }, 0);
+
+    const sliderTL = gsap.timeline({
       paused: true,
       delay: 0.5,
       scrollTrigger: {
         trigger: sectionAdvantage.current,
         start: 'top 40%'
         // markers: true
+      },
+      id: 'sliderTL',
+      defaults: {
+        duration: 0.75
       }
     });
 
-    firstLookTlimeline
-      .fromTo('.advantage__text', { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.75 }, 0)
-      .fromTo('.advantage__title', { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.75 }, 0);
-
-    secondLookTlimeline
-      .fromTo('.advantage__card.card--fill', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
-      .fromTo('.advantage__card.card--white', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0)
-      .fromTo('.bullets', { opacity: 0 }, { opacity: 1, duration: 0.75 });
+    sliderTL
+      .pause()
+      .fromTo('.advantage__card.card--fill', { opacity: 0, y: 80 }, { opacity: 1, y: 0 }, 0)
+      .fromTo('.advantage__card.card--white', { opacity: 0, y: -80 }, { opacity: 1, y: 0 }, 0)
+      .fromTo('.bullets', { opacity: 0 }, { opacity: 1 });
   }, []);
 
   return (

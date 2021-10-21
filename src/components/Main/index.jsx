@@ -1,11 +1,20 @@
 import React from 'react';
 import Particles from 'react-particles-js';
+import { animateScroll as scroll } from 'react-scroll';
 
 import Button from '../Button';
 
 import particlesJSON from './particlesjs-config.json';
 
-function Main({ scrollToChoice }) {
+function Main() {
+  const scrollToChoice = () => {
+    scroll.scrollTo(900, {
+      duration: 700,
+      delay: 50,
+      smooth: true
+    });
+  };
+
   return (
     <section className="main">
       <div className="main__bg">

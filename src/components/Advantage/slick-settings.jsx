@@ -5,8 +5,6 @@ const slickSettings = {
   arrows: false,
   infinite: true,
   speed: 1300,
-  slidesToShow: 3,
-  slidesToScroll: 3,
   autoplay: true,
   autoplaySpeed: 2600,
   pauseOnHover: true,

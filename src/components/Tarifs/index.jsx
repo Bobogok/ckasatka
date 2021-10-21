@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import { useMedia } from 'react-use';
 
 import Card from '../Card';
 import Button from '../Button';
@@ -10,6 +11,8 @@ import cards from './cards.json';
 function Tarifs() {
   const sectionTarifs = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
+
+  const mediaSlider1150 = useMedia('(max-width: 1150px)');
 
   useEffect(() => {
     const firstLookTlimeline = gsap.timeline({
@@ -22,6 +25,10 @@ function Tarifs() {
       }
     });
 
+    firstLookTlimeline.fromTo('.tarifs__title ', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0);
+  }, []);
+
+  useEffect(() => {
     const secondLookTlimeline = gsap.timeline({
       paused: true,
       delay: 0.5,
@@ -32,14 +39,16 @@ function Tarifs() {
       }
     });
 
-    firstLookTlimeline.fromTo('.tarifs__title ', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0);
-
-    secondLookTlimeline
-      .fromTo('.tarifs__card:nth-child(1)', { opacity: 0, x: -80 }, { opacity: 1, x: 40, duration: 0.75 }, 0)
-      .fromTo('.tarifs__card:nth-child(3)', { opacity: 0, x: 80 }, { opacity: 1, x: -40, duration: 0.75 }, 0)
-      .fromTo('.tarifs__card:nth-child(2)', { opacity: 0, y: 0 }, { opacity: 1, duration: 0.75 })
-      .to('.tarifs__card:nth-child(2)', { y: -40, duration: 0.75 });
-  }, []);
+    if (mediaSlider1150) {
+      console.log('mediaSlider1150');
+    } else {
+      secondLookTlimeline
+        .fromTo('.tarifs__card:nth-child(1)', { opacity: 0, x: -80 }, { opacity: 1, x: 40, duration: 0.75 }, 0)
+        .fromTo('.tarifs__card:nth-child(3)', { opacity: 0, x: 80 }, { opacity: 1, x: -40, duration: 0.75 }, 0)
+        .fromTo('.tarifs__card:nth-child(2)', { opacity: 0, y: 0 }, { opacity: 1, duration: 0.75 })
+        .to('.tarifs__card:nth-child(2)', { y: -40, duration: 0.75 });
+    }
+  }, [mediaSlider1150]);
 
   return (
     <section className="tarifs" ref={sectionTarifs}>

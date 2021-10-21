@@ -38,7 +38,16 @@
     }
   }
 
+  &__button-navigation {
+    display: none;
+    width: 3em;
+    height: 3em;
+    margin-right: 25px;
+    background-color: transparent;
+  }
+
   &__navigations {
+    position: relative;
     display: flex;
     align-items: center;
   }
