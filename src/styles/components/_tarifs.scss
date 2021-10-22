@@ -20,33 +20,40 @@
     width: 350px;
     height: 380px;
 
-    &:nth-child(1) {
-      transform: translateX(40px);
-      transition: transform $duration ease;
+    // &:nth-child(1) {
+    //   transform: translateX(40px);
+    //   // transition: transform $duration ease;
+    // }
 
-      &:hover {
-        transform: translateX(30px) !important;
-      }
-    }
+    // &:nth-child(1) {
+    //   transition: translateX(0);
+    // }
 
     &:nth-child(2) {
       z-index: 1;
-      transform: translateY(-40px);
-      transition: transform $duration ease;
+      // transform: translateY(-40px);
+      // transition: transform $duration ease;
 
-      &:hover {
-        transform: translateY(-50px) !important;
-      }
+      // &:hover {
+      //   transform: translateY(-80px);
+      // }
     }
 
-    &:nth-child(3) {
-      transform: translateX(-40px);
-      transition: transform $duration ease;
+    // &:nth-child(3) {
+    //   transition: translateX(0);
+    // }
 
-      &:hover {
-        transform: translateX(-30px) !important;
-      }
-    }
+    // &:nth-child(3) {
+    // transform: translateX(-40px);
+    //   // transition: transform $duration ease;
+    // }
+
+    // &:nth-child(1),
+    // &:nth-child(3) {
+    //   &:hover {
+    //     transform: translateX(-30px);
+    //   }
+    // }
   }
 
   &__cardTitle {

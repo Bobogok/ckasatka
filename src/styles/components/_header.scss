@@ -52,31 +52,11 @@
     align-items: center;
   }
 
-  &__selectors {
-    display: flex;
+  &__menu {
     margin-right: 30px;
-    transition: all $duration-fast / 2 ease;
-
-    .active {
-      color: $main;
-    }
   }
 
-  &__selector {
+  &__menuElem {
     margin-right: 15px;
-    padding: 9px 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color $duration ease-in-out, color $duration ease-in-out,
-      box-shadow $duration-fast ease-in-out, transform $duration-fast ease-in-out, color $duration-slow ease;
-
-    &:hover {
-      box-shadow: 0 -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
-    }
-
-    &:active {
-      border-radius: 5px;
-      transform: translateY(2px);
-    }
   }
 }

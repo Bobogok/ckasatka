@@ -12,7 +12,8 @@ function Tarifs() {
   const sectionTarifs = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
-  const mediaSlider1150 = useMedia('(max-width: 1150px)');
+  const mediaCards1150 = useMedia('(min-width: 980px) and (max-width: 1150px)');
+  const mediaCards980 = useMedia('(max-width: 980px)');
 
   useEffect(() => {
     const firstLookTlimeline = gsap.timeline({
@@ -24,14 +25,16 @@ function Tarifs() {
         // markers: true
       }
     });
-
     firstLookTlimeline.fromTo('.tarifs__title ', { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.75 }, 0);
   }, []);
 
   useEffect(() => {
+    console.log(mediaCards1150);
+
     const secondLookTlimeline = gsap.timeline({
       paused: true,
       delay: 0.5,
+      defaults: { duration: 0.75 },
       scrollTrigger: {
         trigger: sectionTarifs.current,
         start: 'top 40%'
@@ -39,16 +42,37 @@ function Tarifs() {
       }
     });
 
-    if (mediaSlider1150) {
-      console.log('mediaSlider1150');
+    const mobileTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionTarifs.current,
+        start: 'top 40%'
+        // markers: true
+      },
+      paused: true,
+      delay: 0.5,
+      defaults: { duration: 0.75 }
+    });
+
+    if (mediaCards980) {
+      mobileTimeline
+        .fromTo('.tarifs__card', { opacity: 0, x: -80 }, { stagger: 0.2, opacity: 1, x: 0 })
+        .fromTo('.tarifs__card:nth-child(2)', { y: 0 }, { y: 0 });
+    } else if (mediaCards1150) {
+      secondLookTlimeline
+        .fromTo('.tarifs__card:not(:nth-child(2))', { opacity: 0, x: 0 }, { opacity: 1, x: 0 }, 0)
+        .fromTo('.tarifs__card:nth-child(2)', { opacity: 0, x: 0, y: 0 }, { y: -40, opacity: 1 });
     } else {
       secondLookTlimeline
-        .fromTo('.tarifs__card:nth-child(1)', { opacity: 0, x: -80 }, { opacity: 1, x: 40, duration: 0.75 }, 0)
-        .fromTo('.tarifs__card:nth-child(3)', { opacity: 0, x: 80 }, { opacity: 1, x: -40, duration: 0.75 }, 0)
-        .fromTo('.tarifs__card:nth-child(2)', { opacity: 0, y: 0 }, { opacity: 1, duration: 0.75 })
-        .to('.tarifs__card:nth-child(2)', { y: -40, duration: 0.75 });
+        .fromTo('.tarifs__card:nth-child(1)', { opacity: 0, x: -80 }, { opacity: 1, x: 40 }, 0)
+        .fromTo('.tarifs__card:nth-child(3)', { opacity: 0, x: 80 }, { opacity: 1, x: -40 }, 0)
+        .fromTo('.tarifs__card:nth-child(2)', { opacity: 0, x: 0, y: 0 }, { y: -40, opacity: 1 }, 0);
     }
-  }, [mediaSlider1150]);
+
+    return () => {
+      mobileTimeline.kill();
+      secondLookTlimeline.kill();
+    };
+  });
 
   return (
     <section className="tarifs" ref={sectionTarifs}>

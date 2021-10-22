@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { gsap } from 'gsap';
-import { animateScroll as scroll, Link } from 'react-scroll';
+import Menu from './Menu';
 
 import Button from './Button';
 
 import Overlay from './Overlay';
 
 function Header() {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   const [opened, setOpened] = useState(false);
 
@@ -21,10 +22,8 @@ function Header() {
   };
 
   const scrollToTop = () => {
-    scroll.scrollToTop({
-      duration: 500,
-      smooth: true
-    });
+    gsap.to(window, { duration: 0.75, scrollTo: { y: 'top' } });
+    setCartClosed();
   };
 
   useEffect(() => {
@@ -57,24 +56,13 @@ function Header() {
               <path d="M3 17a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1zm0-5a1 1 0 0 0 1 1h16a1 1 0 1 0 0-2H4a1 1 0 0 0-1 1zm1-6a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4z" />
             </svg>
           </button>
-          <Overlay opened={opened} onClose={setCartClosed} />
-          <ul className="header__selectors">
-            <Link activeClass="active" to="advantage" spy smooth duration={700}>
-              <li className="header__selector">Преимущества</li>
-            </Link>
-            <Link activeClass="active" to="functional" spy smooth duration={700}>
-              <li className="header__selector">Функционал</li>
-            </Link>
-            <Link activeClass="active" to="tarifs" spy smooth duration={700}>
-              <li className="header__selector">Тарифы</li>
-            </Link>
-            <Link activeClass="active" to="support" spy smooth duration={700}>
-              <li className="header__selector">Поддержка</li>
-            </Link>
-            <Link activeClass="active" to="about" spy smooth duration={700}>
-              <li className="header__selector">О нас</li>
-            </Link>
-          </ul>
+          <Overlay
+            opened={opened}
+            onClose={setCartClosed}
+            setOpened={(bool) => setOpened(bool)}
+            scrollToTop={scrollToTop}
+          />
+          <Menu />
           <Button className="header__login" outline login>
             <span>Вход</span>
           </Button>

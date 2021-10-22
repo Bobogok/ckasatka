@@ -1,18 +1,17 @@
 import React from 'react';
-import Particles from 'react-particles-js';
-import { animateScroll as scroll } from 'react-scroll';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
+import Particles from 'react-particles-js';
 import Button from '../Button';
 
 import particlesJSON from './particlesjs-config.json';
 
 function Main() {
-  const scrollToChoice = () => {
-    scroll.scrollTo(900, {
-      duration: 700,
-      delay: 50,
-      smooth: true
-    });
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const scrollToBlockDown = () => {
+    gsap.to(window, { duration: 0.75, scrollTo: { y: '.choice', offsetY: 70 } });
   };
 
   return (
@@ -30,7 +29,7 @@ function Main() {
           <span>Подключить</span>
         </Button>
       </div>
-      <div className="main__scroll" onClick={scrollToChoice}>
+      <div className="main__scroll" onClick={scrollToBlockDown}>
         <div className="main__scroll-container">
           <div className="main__scroll-icon" />
         </div>

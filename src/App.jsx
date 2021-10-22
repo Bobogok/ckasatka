@@ -22,12 +22,12 @@ function App() {
       <Main />
       <Choice />
       <Brands />
-      <Advantage name="advantage" />
-      <Functional name="functional" />
-      <Tarifs name="tarifs" />
+      <Advantage />
+      <Functional />
+      <Tarifs />
       <Comments />
-      <Support name="support" />
-      <About name="about" />
+      <Support />
+      <About />
       <Footer />
     </div>
   );

@@ -1,8 +1,9 @@
 import React from 'react';
+import Menu from './Menu';
 
-function Overlay({ opened, onClose }) {
+function Overlay({ opened, onClose, setOpened, scrollToTop }) {
   return (
-    <div className={`overlay ${opened ? 'overlay_visible' : ''}`}>
+    <div className={`overlay ${opened ? 'overlay--visible' : ''}`}>
       <div className="overlay__contant">
         <button className="overlay__close" onClick={onClose} type="button">
           <svg width="100%" height="100%" viewBox="0 0 32 32" fill="#000" xmlns="http://www.w3.org/2000/svg">
@@ -13,14 +14,8 @@ function Overlay({ opened, onClose }) {
             />
           </svg>
         </button>
-        <img className="overlay__contantLogo" src="./static/brands/logo.png" alt="logo" />
-        <ul className="overlay__menuElems">
-          <li className="overlay__menuElem">Преимущества</li>
-          <li className="overlay__menuElem">Функционал</li>
-          <li className="overlay__menuElem">Тарифы</li>
-          <li className="overlay__menuElem">Поддержка</li>
-          <li className="overlay__menuElem">О нас</li>
-        </ul>
+        <img className="overlay__contantLogo" onClick={scrollToTop} src="./static/brands/logo.png" alt="logo" />
+        <Menu mobile setOpened={setOpened} />
       </div>
     </div>
   );
