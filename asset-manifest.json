@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ckasatka/static/css/main.ab42db35.chunk.css",
+    "main.js": "/ckasatka/static/js/main.7280c9d9.chunk.js",
+    "main.js.map": "/ckasatka/static/js/main.7280c9d9.chunk.js.map",
+    "runtime-main.js": "/ckasatka/static/js/runtime-main.1dc35f5d.js",
+    "runtime-main.js.map": "/ckasatka/static/js/runtime-main.1dc35f5d.js.map",
+    "static/js/2.dba8a1c6.chunk.js": "/ckasatka/static/js/2.dba8a1c6.chunk.js",
+    "static/js/2.dba8a1c6.chunk.js.map": "/ckasatka/static/js/2.dba8a1c6.chunk.js.map",
+    "index.html": "/ckasatka/index.html",
+    "static/css/main.ab42db35.chunk.css.map": "/ckasatka/static/css/main.ab42db35.chunk.css.map",
+    "static/js/2.dba8a1c6.chunk.js.LICENSE.txt": "/ckasatka/static/js/2.dba8a1c6.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/ckasatka/static/media/ProximaNova-Regular.d97f8f32.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1dc35f5d.js",
+    "static/js/2.dba8a1c6.chunk.js",
+    "static/css/main.ab42db35.chunk.css",
+    "static/js/main.7280c9d9.chunk.js"
+  ]
+}
