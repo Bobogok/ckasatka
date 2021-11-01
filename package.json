@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Bobogok.github.io/ckasatka",
   "name": "CKASATKA",
   "version": "0.1.0",
   "private": true,
@@ -7,7 +8,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "stylelint 'src/styles/**/*.scss'"
+    "lint": "stylelint 'src/styles/**/*.scss'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -55,6 +58,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
     "prettier": "^2.4.1",
     "react-app-rewired": "^2.1.8",
